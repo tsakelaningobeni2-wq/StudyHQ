@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>StudyHQ | Academic Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-brand">
+
+        <div class="brand-icon">
+            S
+        </div>
+
+        <div>
+            <h1>StudyHQ</h1>
+            <p>Academic HQ</p>
+        </div>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <p class="nav-title">MAIN MENU</p>
+
+
+        <button
+            class="nav-item active"
+            data-view="dashboard"
+            type="button"
+        >
+            <span class="nav-icon">◈</span>
+            <span>Dashboard</span>
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-view="modules"
+            type="button"
+        >
+            <span class="nav-icon">📚</span>
+            <span>My Modules</span>
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-view="tasks"
+            type="button"
+        >
+            <span class="nav-icon">✓</span>
+            <span>Tasks</span>
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-view="planner"
+            type="button"
+        >
+            <span class="nav-icon">◷</span>
+            <span>Study Planner</span>
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-view="deadlines"
+            type="button"
+        >
+            <span class="nav-icon">!</span>
+            <span>Deadlines</span>
+        </button>
+
+
+        <!-- NEW: CALENDAR -->
+
+        <button
+            class="nav-item"
+            data-view="calendar"
+            type="button"
+        >
+            <span class="nav-icon">📅</span>
+            <span>Calendar</span>
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-view="progress"
+            type="button"
+        >
+            <span class="nav-icon">%</span>
+            <span>Progress</span>
+        </button>
+
+
+        <div class="nav-divider"></div>
+
+
+        <p class="nav-title">SYSTEM</p>
+
+
+        <button
+            class="nav-item"
+            data-view="settings"
+            type="button"
+        >
+            <span class="nav-icon">⚙</span>
+            <span>Settings</span>
+        </button>
+
+    </nav>
+
+
+    <div class="sidebar-footer">
+
+        <span class="status-dot"></span>
+
+        <div>
+
+            <strong>Study Mode</strong>
+
+            <small id="sidebarStudyStatus">
+                Focus mode active
+            </small>
+
+        </div>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     MOBILE MENU
+===================================================== -->
+
+<button
+    class="mobile-menu-button"
+    id="mobileMenuButton"
+    type="button"
+>
+    ☰
+</button>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     DASHBOARD VIEW
+===================================================== -->
+
+<section
+    class="page-view active-view"
+    id="view-dashboard"
+>
+
+    <section class="welcome">
+
+        <div>
+
+            <p class="eyebrow">
+                ACADEMIC DASHBOARD
+            </p>
+
+            <h2>
+                Welcome back,
+                <span id="welcomeName">
+                    Tsakelani
+                </span>.
+            </h2>
+
+            <p class="welcome-text">
+                Stay organised, track your progress and keep moving forward.
+            </p>
+
+        </div>
+
+
+        <div class="welcome-decoration">
+
+            <span>STUDY</span>
+
+            <strong>HQ</strong>
+
+        </div>
+
+    </section>
+
+
+    <section class="stats">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📚
+            </div>
+
+            <div>
+
+                <span class="stat-label">
+                    MODULES
+                </span>
+
+                <strong id="moduleCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ✓
+            </div>
+
+            <div>
+
+                <span class="stat-label">
+                    TOTAL TASKS
+                </span>
+
+                <strong id="taskCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ○
+            </div>
+
+            <div>
+
+                <span class="stat-label">
+                    PENDING
+                </span>
+
+                <strong id="pendingCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card gold-stat">
+
+            <div class="stat-icon">
+                %
+            </div>
+
+            <div>
+
+                <span class="stat-label">
+                    PROGRESS
+                </span>
+
+                <strong id="progressPercentage">
+                    0%
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="overview-card">
+
+        <div class="overview-header">
+
+            <div>
+
+                <span class="section-number">
+                    OVERVIEW
+                </span>
+
+                <h2>
+                    Academic Overview
+                </h2>
+
+                <p>
+                    A quick look at your current academic workload.
+                </p>
+
+            </div>
+
+            <div class="overview-icon">
+                ◈
+            </div>
+
+        </div>
+
+
+        <div class="overview-grid">
+
+            <div class="overview-item">
+
+                <span class="overview-label">
+                    COMPLETED
+                </span>
+
+                <strong id="overviewCompleted">
+                    0
+                </strong>
+
+                <small>
+                    tasks finished
+                </small>
+
+            </div>
+
+
+            <div class="overview-item">
+
+                <span class="overview-label">
+                    PENDING
+                </span>
+
+                <strong id="overviewPending">
+                    0
+                </strong>
+
+                <small>
+                    tasks remaining
+                </small>
+
+            </div>
+
+
+            <div class="overview-item">
+
+                <span class="overview-label">
+                    DEADLINES
+                </span>
+
+                <strong id="overviewDeadlines">
+                    0
+                </strong>
+
+                <small>
+                    upcoming
+                </small>
+
+            </div>
+
+
+            <div class="overview-item warning">
+
+                <span class="overview-label">
+                    OVERDUE
+                </span>
+
+                <strong id="overviewOverdue">
+                    0
+                </strong>
+
+                <small>
+                    need attention
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="academic-message">
+
+            <span>◆</span>
+
+            <p id="academicMessage">
+                You're ready to get started.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="dashboard-quick-actions">
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <span class="section-number">
+                        QUICK ACTIONS
+                    </span>
+
+                    <h3>
+                        Manage Your Studies
+                    </h3>
+
+                </div>
+
+                <span class="card-symbol">
+                    +
+                </span>
+
+            </div>
+
+
+            <p class="card-description">
+                Use the menu to manage your modules, tasks, study sessions,
+                deadlines and progress.
+            </p>
+
+
+            <div class="quick-buttons">
+
+                <button
+                    class="quick-button"
+                    data-go-view="modules"
+                    type="button"
+                >
+                    📚 My Modules
+                </button>
+
+
+                <button
+                    class="quick-button"
+                    data-go-view="tasks"
+                    type="button"
+                >
+                    ✓ Add Task
+                </button>
+
+
+                <button
+                    class="quick-button"
+                    data-go-view="planner"
+                    type="button"
+                >
+                    ◷ Plan Study
+                </button>
+
+
+                <button
+                    class="quick-button"
+                    data-go-view="deadlines"
+                    type="button"
+                >
+                    ! View Deadlines
+                </button>
+
+
+                <!-- NEW: CALENDAR QUICK ACTION -->
+
+                <button
+                    class="quick-button"
+                    data-go-view="calendar"
+                    type="button"
+                >
+                    📅 Open Calendar
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- =====================================================
+     MODULES VIEW
+===================================================== -->
+
+<section
+    class="page-view"
+    id="view-modules"
+>
+
+    <div class="page-header">
+
+        <div>
+
+            <span class="section-number">
+                01
+            </span>
+
+            <h2>
+                My Modules
+            </h2>
+
+            <p>
+                Add and manage the modules you are currently studying.
+            </p>
+
+        </div>
+
+        <div class="page-icon">
+            📚
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="module-inputs">
+
+            <input
+                id="moduleCodeInput"
+                type="text"
+                placeholder="Module code"
+            >
+
+
+            <input
+                id="moduleNameInput"
+                type="text"
+                placeholder="Module name"
+            >
+
+
+            <button
+                id="addModuleButton"
+                type="button"
+            >
+                + Add Module
+            </button>
+
+        </div>
+
+
+        <div id="moduleList">
+
+            <div class="empty-modules">
+                No modules added yet.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TASKS VIEW
+===================================================== -->
+
+<section
+    class="page-view"
+    id="view-tasks"
+>
+
+    <div class="page-header">
+
+        <div>
+
+            <span class="section-number">
+                02
+            </span>
+
+            <h2>
+                Tasks & Assignments
+            </h2>
+
+            <p>
+                Manage assignments, study tasks and academic deadlines.
+            </p>
+
+        </div>
+
+        <div class="page-icon">
+            ✓
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="task-inputs">
+
+            <input
+                id="taskInput"
+                type="text"
+                placeholder="Task or assignment..."
+            >
+
+
+            <select id="taskModuleSelect">
+
+                <option value="">
+                    Select module
+                </option>
+
+            </select>
+
+
+            <input
+                id="taskDateInput"
+                type="date"
+            >
+
+
+            <button
+                id="addTaskButton"
+                type="button"
+            >
+                + Add Task
+            </button>
+
+        </div>
+
+
+        <ul id="taskList"></ul>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STUDY PLANNER VIEW
+===================================================== -->
+
+<section
+    class="page-view"
+    id="view-planner"
+>
+
+    <div class="page-header">
+
+        <div>
+
+            <span class="section-number">
+                03
+            </span>
+
+            <h2>
+                Study Planner
+            </h2>
+
+            <p>
+                Schedule focused study sessions and build a consistent routine.
+            </p>
+
+        </div>
+
+        <div class="page-icon">
+            ◷
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="planner-inputs">
+
+            <input
+                id="studyTopicInput"
+                type="text"
+                placeholder="What are you studying?"
+            >
+
+
+            <select id="studyModuleSelect">
+
+                <option value="">
+                    Select module
+                </option>
+
+            </select>
+
+
+            <input
+                id="studyDateInput"
+                type="date"
+            >
+
+
+            <input
+                id="studyTimeInput"
+                type="time"
+            >
+
+
+            <select id="studyDurationSelect">
+
+                <option value="30">
+                    30 minutes
+                </option>
+
+                <option value="45">
+                    45 minutes
+                </option>
+
+                <option
+                    value="60"
+                    selected
+                >
+                    60 minutes
+                </option>
+
+                <option value="90">
+                    90 minutes
+                </option>
+
+                <option value="120">
+                    2 hours
+                </option>
+
+            </select>
+
+
+            <button
+                id="addStudyButton"
+                type="button"
+            >
+                + Add Session
+            </button>
+
+        </div>
+
+
+        <div class="session-heading">
+            SCHEDULED SESSIONS
+        </div>
+
+
+        <div id="studySessionList">
+
+            <div class="empty-sessions">
+                No study sessions scheduled yet.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DEADLINES VIEW
+===================================================== -->
+
+<section
+    class="page-view"
+    id="view-deadlines"
+>
+
+    <div class="page-header">
+
+        <div>
+
+            <span class="section-number">
+                04
+            </span>
+
+            <h2>
+                Upcoming Deadlines
+            </h2>
+
+            <p>
+                Keep track of assignments and academic deadlines.
+            </p>
+
+        </div>
+
+        <div class="page-icon">
+            !
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <div id="deadlineList">
+
+            <div class="empty-deadlines">
+                No upcoming deadlines.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     NEW: CALENDAR VIEW
+===================================================== -->
+
+<section
+    class="page-view"
+    id="view-calendar"
+>
+
+    <div class="page-header">
+
+        <div>
+
+            <span class="section-number">
+                05
+            </span>
+
+            <h2>
+                Academic Calendar
+            </h2>
+
+            <p>
+                View your tasks, deadlines and study sessions for each day.
+            </p>
+
+        </div>
+
+        <div class="page-icon">
+            📅
+        </div>
+
+    </div>
+
+
+    <!-- TODAY -->
+
+    <div class="calendar-today-card">
+
+        <div class="calendar-today-info">
+
+            <span class="section-number">
+                TODAY
+            </span>
+
+            <h2 id="calendarTodayDate">
+                Today
+            </h2>
+
+            <p id="calendarTodayMessage">
+                Here's what's happening with your studies today.
+            </p>
+
+        </div>
+
+
+        <div class="calendar-today-icon">
+            📅
+        </div>
+
+    </div>
+
+
+    <!-- TODAY'S SCHEDULE -->
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <div>
+
+                <span class="section-number">
+                    TODAY'S SCHEDULE
+                </span>
+
+                <h3>
+                    Your Academic Day
+                </h3>
+
+            </div>
+
+            <span class="card-symbol">
+                ◷
+            </span>
+
+        </div>
+
+
+        <div
+            class="calendar-schedule"
+            id="todayScheduleList"
+        >
+
+            <div class="calendar-empty">
+
+                <div class="calendar-empty-icon">
+                    📅
+                </div>
+
+                <h3>
+                    Nothing scheduled yet
+                </h3>
+
+                <p>
+                    Your tasks, deadlines and study sessions for today
+                    will appear here.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TODAY'S SUMMARY -->
+
+    <div class="calendar-summary-grid">
+
+
+        <div class="calendar-summary-card">
+
+            <span class="calendar-summary-icon">
+                ✓
+            </span>
+
+            <div>
+
+                <span class="calendar-summary-label">
+                    TASKS TODAY
+                </span>
+
+                <strong id="calendarTaskCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="calendar-summary-card">
+
+            <span class="calendar-summary-icon">
+                !
+            </span>
+
+            <div>
+
+                <span class="calendar-summary-label">
+                    DEADLINES TODAY
+                </span>
+
+                <strong id="calendarDeadlineCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="calendar-summary-card">
+
+            <span class="calendar-summary-icon">
+                ◷
+            </span>
+
+            <div>
+
+                <span class="calendar-summary-label">
+                    STUDY SESSIONS
+                </span>
+
+                <strong id="calendarStudyCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="calendar-summary-card">
+
+            <span class="calendar-summary-icon">
+                %
+            </span>
+
+            <div>
+
+                <span class="calendar-summary-label">
+                    COMPLETED TODAY
+                </span>
+
+                <strong id="calendarCompletedCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DAY NAVIGATION -->
+
+    <div class="card calendar-navigation-card">
+
+        <div class="calendar-navigation">
+
+            <button
+                id="previousDayButton"
+                class="calendar-nav-button"
+                type="button"
+            >
+                ← Previous Day
+            </button>
+
+
+            <button
+                id="todayButton"
+                class="calendar-today-button"
+                type="button"
+            >
+                Today
+            </button>
+
+
+            <button
+                id="nextDayButton"
+                class="calendar-nav-button"
+                type="button"
+            >
+                Next Day →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PROGRESS VIEW
+===================================================== -->
+
+<section
+    class="page-view"
+    id="view-progress"
+>
+
+    <div class="page-header">
+
+        <div>
+
+            <span class="section-number">
+                06
+            </span>
+
+            <h2>
+                Progress Tracker
+            </h2>
+
+            <p>
+                Track how much of your academic workload you have completed.
+            </p>
+
+        </div>
+
+        <div class="page-icon">
+            %
+        </div>
+
+    </div>
+
+
+    <div class="card progress-card">
+
+        <p id="progressText">
+            0 of 0 tasks completed.
+        </p>
+
+
+        <div class="progress-info">
+
+            <span>
+                Overall Progress
+            </span>
+
+            <strong id="progressNumber">
+                0%
+            </strong>
+
+        </div>
+
+
+        <div class="progress-bar">
+
+            <div
+                id="progressFill"
+                class="progress-fill"
+            ></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SETTINGS VIEW
+===================================================== -->
+
+<section
+    class="page-view"
+    id="view-settings"
+>
+
+    <div class="settings-card">
+
+        <div class="settings-header">
+
+            <div>
+
+                <span class="section-number">
+                    SETTINGS
+                </span>
+
+                <h2>
+                    StudyHQ Settings
+                </h2>
+
+                <p>
+                    Personalise your StudyHQ experience and study preferences.
+                </p>
+
+            </div>
+
+
+            <div class="settings-icon">
+                ⚙
+            </div>
+
+        </div>
+
+
+        <!-- PROFILE -->
+
+        <div class="settings-section">
+
+            <div class="settings-section-title">
+
+                <span class="settings-section-icon">
+                    👤
+                </span>
+
+                <div>
+
+                    <h3>
+                        Profile
+                    </h3>
+
+                    <p>
+                        Update the name displayed on your dashboard.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-row">
+
+                <div class="settings-info">
+
+                    <strong>
+                        Display Name
+                    </strong>
+
+                    <small>
+                        This name will appear in your welcome message.
+                    </small>
+
+                </div>
+
+
+                <div class="settings-control">
+
+                    <input
+                        type="text"
+                        id="settingsNameInput"
+                        placeholder="Your name"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- APPEARANCE -->
+
+        <div class="settings-section">
+
+            <div class="settings-section-title">
+
+                <span class="settings-section-icon">
+                    🎨
+                </span>
+
+                <div>
+
+                    <h3>
+                        Appearance
+                    </h3>
+
+                    <p>
+                        Choose how StudyHQ looks.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-row">
+
+                <div class="settings-info">
+
+                    <strong>
+                        Theme
+                    </strong>
+
+                    <small>
+                        Switch between dark and light mode.
+                    </small>
+
+                </div>
+
+
+                <div class="theme-buttons">
+
+                    <button
+                        class="theme-button active"
+                        id="darkThemeButton"
+                        type="button"
+                    >
+                        🌙 Dark
+                    </button>
+
+
+                    <button
+                        class="theme-button"
+                        id="lightThemeButton"
+                        type="button"
+                    >
+                        ☀ Light
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- STUDY PREFERENCES -->
+
+        <div class="settings-section">
+
+            <div class="settings-section-title">
+
+                <span class="settings-section-icon">
+                    📚
+                </span>
+
+                <div>
+
+                    <h3>
+                        Study Preferences
+                    </h3>
+
+                    <p>
+                        Configure your preferred study experience.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-row">
+
+                <div class="settings-info">
+
+                    <strong>
+                        Study Mode
+                    </strong>
+
+                    <small>
+                        Show whether focused study mode is active.
+                    </small>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="studyModeToggle"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="settings-row">
+
+                <div class="settings-info">
+
+                    <strong>
+                        Default Study Duration
+                    </strong>
+
+                    <small>
+                        Used as the default duration for new study sessions.
+                    </small>
+
+                </div>
+
+
+                <select id="defaultDurationSelect">
+
+                    <option value="30">
+                        30 minutes
+                    </option>
+
+                    <option value="45">
+                        45 minutes
+                    </option>
+
+                    <option
+                        value="60"
+                        selected
+                    >
+                        60 minutes
+                    </option>
+
+                    <option value="90">
+                        90 minutes
+                    </option>
+
+                    <option value="120">
+                        2 hours
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- NOTIFICATIONS -->
+
+        <div class="settings-section">
+
+            <div class="settings-section-title">
+
+                <span class="settings-section-icon">
+                    🔔
+                </span>
+
+                <div>
+
+                    <h3>
+                        Notifications
+                    </h3>
+
+                    <p>
+                        Control StudyHQ reminder preferences.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-row">
+
+                <div class="settings-info">
+
+                    <strong>
+                        Deadline Reminders
+                    </strong>
+
+                    <small>
+                        Enable deadline reminder notifications.
+                    </small>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="notificationToggle"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- DATA MANAGEMENT -->
+
+        <div class="settings-section danger-section">
+
+            <div class="settings-section-title">
+
+                <span class="settings-section-icon">
+                    🗑
+                </span>
+
+                <div>
+
+                    <h3>
+                        Data Management
+                    </h3>
+
+                    <p>
+                        Manage your StudyHQ stored information.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-danger-actions">
+
+                <button
+                    id="clearTasksButton"
+                    class="settings-danger-button"
+                    type="button"
+                >
+                    Clear Tasks
+                </button>
+
+
+                <button
+                    id="clearSessionsButton"
+                    class="settings-danger-button"
+                    type="button"
+                >
+                    Clear Study Sessions
+                </button>
+
+
+                <button
+                    id="resetStudyHQButton"
+                    class="settings-reset-button"
+                    type="button"
+                >
+                    Reset StudyHQ
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="settings-saved"
+            id="settingsSavedMessage"
+        >
+            ✓ Settings saved automatically
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+        StudyHQ © 2026 • Built for better studying.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
