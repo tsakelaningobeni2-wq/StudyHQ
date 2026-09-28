@@ -58,6 +58,38 @@ Software Development Student
 
 StudyHQ is a personal project created to develop practical software-development skills and explore the process of designing, developing and maintaining a real-world web application.
 
+## 📸 Screenshots
+
+### 🏠 Dashboard
+
+The StudyHQ dashboard provides students with an overview of their academic workspace and key study information.
+
+![StudyHQ Dashboard](DASHBOARD.jpeg)
+
+### 📚 Modules
+
+The Modules section allows students to organise and manage their academic modules.
+
+![StudyHQ Modules](MODULES.jpeg)
+
+### ✅ Tasks
+
+The Tasks section helps students keep track of academic tasks and responsibilities.
+
+![StudyHQ Tasks](TASKS.jpeg)
+
+### 📅 Deadlines
+
+The Deadlines section provides students with a clear view of upcoming academic deadlines.
+
+![StudyHQ Deadlines](DEADLINES.jpeg)
+
+### ⚙️ Settings
+
+The Settings section allows users to manage their StudyHQ preferences and configuration.
+
+![StudyHQ Settings](SETTINGS.jpeg)
+
 ---
 
 **Still becoming. Still building.** 🖤
